@@ -12,13 +12,12 @@ class Sieve {
     }
 
     List<Integer> getPrimes() {
-        int i, band, j;
+        int i, j;
         int [] arrayPrimes = new int[maxPrime + 1];
         
-        i = 2;
-	band = 0;
+        i = 2;	
         arrayPrimes = createArray();
-	while(i <= maxPrime  && band == 0){
+	while(i*i <= maxPrime){
             for (j = i + i; j <= maxPrime; j = j + i){			
                     arrayPrimes[j] = 1;
             }		
@@ -26,11 +25,7 @@ class Sieve {
             
             while (i <= maxPrime && arrayPrimes[i] != 0 ){
 			i++;
-		}
-            
-            if (Math.pow(i, 2) > maxPrime){
-                    band = 1;
-            }		
+		}		
 	}
         
         for ( i = 2; i <= maxPrime; i++) {
