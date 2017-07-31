@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,7 +20,7 @@ class Matrix{
         
         tam = matriz.size();
         for (int i = 0; i < tam; i++) {
-            row = mayRow(matriz.get(i));
+            row = Collections.max(matriz.get(i));
             for (int j = 0; j < tam; j++) {
                col = menCol(j);
                if (row == col){
@@ -29,19 +30,6 @@ class Matrix{
         }        
         
         return saddlepoints;
-    }
-    
-    public int mayRow(List<Integer> row){
-        int may;
-        
-        may = row.get(0);        
-        for (int i = 1; i < row.size(); i++) {
-            if(row.get(i) >= may ){
-                may = row.get(i);
-            }
-        }
-        
-        return may;
     }
     
     public int menCol(int col){
